@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   console.log(`start: ${req.method} ${req.url}`);
   next();
   const diffTime = Date.now() - start;
-  console.log(`end: ${req.method} ${baseUrl} ${req.url} ${diffTime}ms`);
+  console.log(`end: ${req.method} ${req.baseUrl} ${req.url} ${diffTime}ms`);
 });
 
 app.use("/users", usersRouter);
