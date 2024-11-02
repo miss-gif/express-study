@@ -1,9 +1,16 @@
 import express from "express";
 import { usersRouter } from "./routes/users.router.js";
 import { postsRouter } from "./routes/posts.router.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "public"))); // 'public' 폴더에 정적 파일 저장
 
 // JSON 파서 미들웨어
 app.use(express.json());
